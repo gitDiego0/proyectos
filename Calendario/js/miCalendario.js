@@ -132,7 +132,7 @@ function pintarMes(mes)
 function pintarAnio(anioP)
 {
     var TextoAnio=document.getElementById("Anio");
-    TextoAnio.innerHTML=anioP;
+    TextoAnio.innerHTML="&nbsp;"+anioP;
 }
 
 function pintarDias(){
