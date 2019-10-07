@@ -1,0 +1,49 @@
+
+#Cuerpo{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#Calendario {
+    border: 15px;
+    color: black;
+}
+
+.table,tr,td{
+    border: 2px solid black;
+    width: 15px;
+    height: 8px;
+    
+}
+
+/* th,td{
+    border: 15px;
+    border-color: black;
+    border-width: 2px;
+} */
+
+#Festivo{
+    color: red;
+}
+
+#hoy{
+    color: white;
+    font-weight: bold;
+    background-color: navy;
+}
+
+#normalDay{
+    color: black;
+}
+
+#Domingo{
+    color: red;
+    background-color: darkgoldenrod;
+}
+
+#dias{
+    background-color: darkgoldenrod;
+}
+
+#NombreMes{
+    background-color: aqua;
+}
