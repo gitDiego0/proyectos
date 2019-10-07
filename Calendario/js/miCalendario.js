@@ -244,7 +244,9 @@ function LimpiarPantalla()
 function FechaActual()
 {
     LimpiarPantalla();
-    PintarCalendario(fecha.getFullYear(),fecha.getMonth());
+    anio=fecha.getFullYear();
+    mes=fecha.getMonth()+1;
+    PintarCalendario();
 }
 
 
