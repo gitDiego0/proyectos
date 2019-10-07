@@ -184,10 +184,10 @@ function mesMenos()
     {
         mes=12;
         anio=anio-1;
-        PintarCalendario(anio,mes)
+        PintarCalendario()
     }else{
         mes=mes-1;
-        PintarCalendario(anio,mes)
+        PintarCalendario()
     }
     
     
@@ -205,10 +205,10 @@ function mesMas()
     if(mes>12){
         mes=1;
         anio=anio+1;
-        PintarCalendario(anio,mes);
+        PintarCalendario();
     }else{
         mes=mes+1
-        PintarCalendario(anio,mes);
+        PintarCalendario();
     }
     
     
@@ -221,7 +221,7 @@ function anioMenos()
     /*pintarAnio(anio);
     pintarDias();
     pintarTabla2(anio,mes);*/
-    PintarCalendario(anio,mes);
+    PintarCalendario();
 }
 
 function anioMas()
@@ -232,13 +232,21 @@ function anioMas()
     /*pintarAnio(anio);
     pintarDias();
     pintarTabla2(anio,mes);*/
-    PintarCalendario(anio,mes);
+    PintarCalendario();
 }
 
 function LimpiarPantalla()
 {
     var tabla=document.getElementById("Calendario");
     tabla.innerHTML="";
+}
+
+function FechaActual()
+{
+    LimpiarPantalla();
+    anio=fecha.getFullYear();
+    mes=fecha.getMonth()+1;
+    PintarCalendario();
 }
 
 
