@@ -11,6 +11,7 @@ var meses=['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
 
 
 function init(){
+    mensajeAlerta();
     PintarCalendario(mes);
 }
 
@@ -72,6 +73,9 @@ function pintarTabla2(anioP,mesP)
                     //añade la id hoy al dia actual en el que estamos          
                 var celda=document.createElement("td");
                 celda.setAttribute("id","hoy");
+                celda.setAttribute("onclick", "fechaSeleccionada()");
+                celda.setAttribute("class","dia");
+                //celda.onclick=fechaSeleccionada();
                 var texto=document.createTextNode(dia);
                 celda.appendChild(texto);
                 fila.appendChild(celda);
@@ -83,10 +87,17 @@ function pintarTabla2(anioP,mesP)
                 //si el dia no es hoy crea la id normalDay para darle otro formato diferente
                 var celda=document.createElement("td");
                 celda.setAttribute("id","normalDay");
+                celda.setAttribute("onclick", "fechaSeleccionada()");
+                celda.setAttribute("class","dia");
+                //celda.onclick=fechaSeleccionada();
                 var texto=document.createTextNode(dia);
-                if(i%7==0){ //
+                if(i%7==0){ 
                     celda.setAttribute("id","Festivo"); //Añade la id festivo a los domingos.
+
+                    celda.setAttribute("class","dia");
                 }
+
+                
                 celda.appendChild(texto);
                 fila.appendChild(celda);
                 tabla.appendChild(fila);
@@ -95,7 +106,7 @@ function pintarTabla2(anioP,mesP)
 			dia++;
 
 		}
-        
+       
 		if(i%7==0)
 
 		{
@@ -111,7 +122,7 @@ function pintarTabla2(anioP,mesP)
     }
 }
 
-
+//pinta el mes que se tenga seleccionado
 function pintarMes(mesP)
 {
 
@@ -119,7 +130,7 @@ function pintarMes(mesP)
     TextoMeses.innerHTML=meses[mesP];
 
 }
-
+//pinta el año que se tenga seleccionado 
 function pintarAnio(anioP)
 {
     var TextoAnio=document.getElementById("Anio");
@@ -137,6 +148,7 @@ function pintarDias(){
         var celda=document.createElement("th");
         var texto=document.createTextNode(dias[i]);
         celda.setAttribute("id","dias");
+        
         if(dias[i]=="Dom"){
             celda.setAttribute("id","Domingo");
         }
@@ -146,15 +158,17 @@ function pintarDias(){
     }
 }
 
+//Funcion principal que se encarga de llamar a las funciones necesarias para pintar el calendario completo
 function PintarCalendario()
 {
+    
     pintarMes(mes);
     pintarAnio(anio);
     pintarDias();
     pintarTabla2(anio,mes);
 }
 
-
+//funcion para retroceder en los meses
 function mesMenos()
 {
     
@@ -175,6 +189,7 @@ function mesMenos()
     
 }
 
+//Funcion para aumentar el mes
 function mesMas()
 {
     
@@ -192,6 +207,7 @@ function mesMas()
     
 }
 
+//Funcion para decrecer el numero del año
 function anioMenos()
 {
     anio=anio-1;
@@ -199,6 +215,7 @@ function anioMenos()
     PintarCalendario();
 }
 
+//Funcion para el boton de avanzar años
 function anioMas()
 {
     
@@ -207,18 +224,39 @@ function anioMas()
     PintarCalendario();
 }
 
+//Limpia la pantalla borrando la tabla 
 function LimpiarPantalla()
 {
     var tabla=document.getElementById("Calendario");
     tabla.innerHTML="";
 }
 
+//Funcion para mostrar en el calendario la fecha actual
 function FechaActual()
 {
     LimpiarPantalla();
     anio=fecha.getFullYear();
     mes=fecha.getMonth()+1;
     PintarCalendario();
+}
+
+
+//Funcion que muestra un dia seleccionado de la tabla
+function fechaSeleccionada()
+{
+    var elemento=document.getElementById("fechaSeleccionada");
+    var diaSel1=document.getElementsByTagName("td");
+    var diaSel2=diaSel1.innerHTML;
+    var mesSel=mes;
+    var anioSel=anio;
+    elemento.innerHTML=diaSel2+"&nbsp;/"+meses[mesSel]+"&nbsp;/"+anioSel;
+}
+
+function mensajeAlerta(){
+    alert("Errores conocidos:          "+ 
+    "1-Al avanzar de diciembre a enero o enero a diciembre no muestra correctamente los nombres de los meses aunque si muestra el calendario correctamente               "+
+    "2-No he podio hacer que muestre los ultimos dias del mes anterior y los primeros dias del mes siguiente en los cuadros que no corresponden al mes seleccionado      "+
+    "3-Al seleccionar un dia de la tabla solo muestra mes y año,no consigo hacer que muestre el contenido de la celda")    
 }
 
 
