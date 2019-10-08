@@ -134,7 +134,7 @@ function pintarDias(){
     var fila=document.createElement("tr");
     for(i=0;i<dias.length;i++)
     {
-        var celda=document.createElement("td");
+        var celda=document.createElement("th");
         var texto=document.createTextNode(dias[i]);
         celda.setAttribute("id","dias");
         if(dias[i]=="Dom"){

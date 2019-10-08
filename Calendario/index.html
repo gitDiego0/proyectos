@@ -13,20 +13,22 @@
             <p id="Anio"></p>
         </div>
         <br><br><br>
-        <div>
+        <div style="float:none">
             <table id="Calendario">
             </table>
         </div>
-        <br>
         
-
-        <button type="button" id="MesMenos" onclick="mesMenos()">&laquo</button>
-        Mes
-        <button type="button" id="MesMas" onclick="mesMas()">&raquo</button>
-        <button type="button" id="AnioMenos" onclick="anioMenos()">&laquo</button>
-        Año
-        <button type="button" id="AnioMas" onclick="anioMas()">&raquo</button>
         <br><br>
-        <button type="button" id="fechaActual" onclick="FechaActual()">Ir a fecha actual</button>
+        <div id="botones" style="float: left">
+            <button type="button" id="MesMenos" onclick="mesMenos()">&laquo</button>
+            Mes
+            <button type="button" id="MesMas" onclick="mesMas()">&raquo</button>
+            <button type="button" id="AnioMenos" onclick="anioMenos()">&laquo</button>
+            Año
+            <button type="button" id="AnioMas" onclick="anioMas()">&raquo</button>
+            <br><br>
+            <button type="button" id="fechaActual" onclick="FechaActual()">Ir a fecha actual</button>
+        </div>
+        
     </body>
 </html>
