@@ -6,12 +6,12 @@ var dia=0;
 var dias=['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 var mes=fecha.getMonth()+1;
 var anio=fecha.getFullYear();
-var meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+var meses=['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
 
 
 function init(){
-    PintarCalendario();
+    PintarCalendario(mes);
 }
 
 function pintar(){
@@ -69,7 +69,7 @@ function pintarTabla2(anioP,mesP)
 
 			if(dia==fecha.getDate() && mesP==fecha.getMonth()+1 && anioP==fecha.getFullYear()){
 
-                              
+                    //añade la id hoy al dia actual en el que estamos          
                 var celda=document.createElement("td");
                 celda.setAttribute("id","hoy");
                 var texto=document.createTextNode(dia);
@@ -80,12 +80,12 @@ function pintarTabla2(anioP,mesP)
 
             }else{
 
-                
+                //si el dia no es hoy crea la id normalDay para darle otro formato diferente
                 var celda=document.createElement("td");
                 celda.setAttribute("id","normalDay");
                 var texto=document.createTextNode(dia);
-                if(i%7==0){
-                    celda.setAttribute("id","Festivo");
+                if(i%7==0){ //
+                    celda.setAttribute("id","Festivo"); //Añade la id festivo a los domingos.
                 }
                 celda.appendChild(texto);
                 fila.appendChild(celda);
@@ -95,7 +95,7 @@ function pintarTabla2(anioP,mesP)
 			dia++;
 
 		}
-
+        
 		if(i%7==0)
 
 		{
@@ -112,20 +112,11 @@ function pintarTabla2(anioP,mesP)
 }
 
 
-function pintarMes(mes)
+function pintarMes(mesP)
 {
-    /*var tabla=document.getElementById("Calendario");
-    var fila1=document.createElement("tr");
-
-    var celda1=document.createElement("th");
-    var texto1=document.createTextNode(meses[mes-1]);
-    //celda1.setAttribute("id","NombreMes");
-    celda1.appendChild(texto1);
-    fila1.appendChild(celda1);
-    tabla.appendChild(fila1);*/
 
     var TextoMeses=document.getElementById("Mes");
-    TextoMeses.innerHTML=meses[mes-1];
+    TextoMeses.innerHTML=meses[mesP];
 
 }
 
@@ -139,11 +130,6 @@ function pintarDias(){
 
     var tabla=document.getElementById("Calendario");
     
-    /*var fila1=document.createElement("tr");
-    var celda1=document.createTextNode(meses[mes-1]);
-    //celda1.setAttribute("id","NombreMes");
-    fila1.appendChild(celda1);
-    tabla.appendChild(fila1);*/
 
     var fila=document.createElement("tr");
     for(i=0;i<dias.length;i++)
@@ -174,15 +160,11 @@ function mesMenos()
     
     
     LimpiarPantalla();
-    /*
-    pintarMes(mes);
-    pintarDias();
-    pintarTabla2(anio,mes);
-    */
+    
    
-   if(mes<1)
+   if(mes<0)
     {
-        mes=12;
+        mes=11;
         anio=anio-1;
         PintarCalendario()
     }else{
@@ -198,12 +180,8 @@ function mesMas()
     
     
     LimpiarPantalla();
-    /*pintarMes(mes);
-    pintarDias();
-    pintarTabla2(anio,mes);*/
-    
-    if(mes>12){
-        mes=1;
+    if(mes>11){
+        mes=0;
         anio=anio+1;
         PintarCalendario();
     }else{
@@ -218,9 +196,6 @@ function anioMenos()
 {
     anio=anio-1;
     LimpiarPantalla();
-    /*pintarAnio(anio);
-    pintarDias();
-    pintarTabla2(anio,mes);*/
     PintarCalendario();
 }
 
@@ -229,9 +204,6 @@ function anioMas()
     
     anio=anio+1;
     LimpiarPantalla();
-    /*pintarAnio(anio);
-    pintarDias();
-    pintarTabla2(anio,mes);*/
     PintarCalendario();
 }
 
