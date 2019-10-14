@@ -5,7 +5,7 @@
 {
 	font-family: "Lucida Console", Monaco, monospace;
 	font-style: normal;
-	font-size: 2em;
+	font-size: 1em;
 }
 .contenedor
 {
@@ -18,12 +18,14 @@
  * */
  
 	display: table;
-	max-width: 31em ; /*Ancho establecido por el numero de caracteres*/
-	min-width: 21em;
-	padding: 1ex 1em;/*Altura de 1 caracter y 1 caracter de ancho alrededor del contenedor*/
+	 
+	max-width:31ch;/*Ancho establecido por el numero de caracteres*/
+	/*min-width: 31em;*/
+	padding: 1ch 1ch;/*Altura de 1 caracter y 1 caracter de ancho alrededor del contenedor*/
 	border: 1px;
 	border-style: solid;
 	border-color: black;
+	margin: 1px;
 	background-color: darkgray;
 	
 }
