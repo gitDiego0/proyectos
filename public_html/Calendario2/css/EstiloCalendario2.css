@@ -1,6 +1,7 @@
 /**
 * Hoja de estilos
 **/
+
 .contenedorExterno
 {
 	font-family: "Lucida Console", Monaco, monospace;
@@ -18,10 +19,9 @@
  * */
  
 	display: table;
-	 
-	max-width:31ch;/*Ancho establecido por el numero de caracteres*/
-	/*min-width: 31em;*/
-	padding: 1ch 1ch;/*Altura de 1 caracter y 1 caracter de ancho alrededor del contenedor*/
+	max-width:31ch;/*Ancho establecido por ancho del numero 0*/
+	min-width:27ch;
+	padding: .5ex;/*Coge como referencia la altura de la x minuscula*/
 	border: 1px;
 	border-style: solid;
 	border-color: black;
@@ -31,9 +31,23 @@
 }
 .filas{}
 .celdas{}
-.controles{}
-.ctrlDesp{}
-.ctrlSelc{}
+.controles,  .ctrlDesp, .ctrlSelc
+{
+	text-align: center;
+
+}
+
+
+
+.ctrlSelc
+{
+	width: 25%;
+}
+
+.ctrDesp
+{
+	width:10%;
+}
 .hoy{}
 .diaSemana{}
 .numSemanas{}
